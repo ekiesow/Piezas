@@ -89,7 +89,15 @@ Piece Piezas::dropPiece(int column)
 **/
 Piece Piezas::pieceAt(int row, int column)
 {
-    return Blank;
+    // check that the coordinates are not out of bounds
+    if(row < 0 || row > 2)
+      return Invalid;
+    if(column < 0 || column > 3)
+      return Invalid;
+
+    // return the piece on the board at specified row and column
+    // will return Blank if X or O has not placed a piece
+    return board[row][column];
 }
 
 /**
