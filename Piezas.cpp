@@ -48,6 +48,38 @@ void Piezas::reset()
 **/ 
 Piece Piezas::dropPiece(int column)
 {
+    // check that column is a valid spot on the board
+    // if invalid, player loses their turn
+    if(column < 0 || column > 3) {
+        if(turn == X)
+          turn = O;
+        else
+          turn = X;
+        return Invalid;
+    }
+
+    // try and place piece of current turrn if the column is not full
+    // return the piece placed
+    Piece temp = turn;
+    int counter = 2;
+    while(counter >= 0) {
+      if(board[counter][column] == Blank) {
+          board[counter][column] = turn;
+          if(turn == X)
+            turn = O;
+          else
+            turn = X;
+          return temp;
+      }
+      counter--;
+    }
+    
+    // column is full, return Blank 
+    // if column is full, player loses their turn
+    if(turn == X)
+      turn = O;
+    else
+      turn = X;
     return Blank;
 }
 
