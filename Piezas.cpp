@@ -81,6 +81,10 @@ Piece Piezas::pieceAt(int row, int column) {
   if (row < 0 || row > 2) return Invalid;
   if (column < 0 || column > 3) return Invalid;
 
+  // transpose top and bottom rows
+  if(row == 0) row = 2;
+  else if(row == 2) row = 0;
+
   // return the piece on the board at specified row and column
   // will return Blank if X or O has not placed a piece
   return board[row][column];
