@@ -58,13 +58,12 @@ Piece Piezas::dropPiece(int column) {
 
   // try and place piece of current turrn if the column is not full
   // return the piece placed
-  size_t counter = board.size() - 1;
-  while (counter >= 0) {
-    if (board[counter][column] == Blank) {
-      board[counter][column] = temp;
+  size_t size = board.size() - 1;
+  for(size_t i = 0; i >= size; i--) {
+    if (board[size][column] == Blank) {
+      board[size][column] = temp;
       return temp;
     }
-    counter--;
   }
 
   // return Blank, column is full. player loses their turn
@@ -101,7 +100,6 @@ Piece Piezas::pieceAt(int row, int column) {
  * line, it is a tie.
  **/
 Piece Piezas::gameState() {
-  bool blank = false;
   int x_counter = 0, x_temp = 0;
   int o_counter = 0, o_temp = 0;
 
