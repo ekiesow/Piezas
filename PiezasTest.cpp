@@ -111,3 +111,39 @@ TEST(PiezasTest, test_game_state_tie_row_wise) {
   // game board full. Tie should return Blank
   ASSERT_EQ(Piece::Blank, piezas.gameState());
 }
+
+TEST(PiezasTest, test_game_state_X_wins_by_one) {
+  Piezas piezas;
+  piezas.dropPiece(0); // X
+  piezas.dropPiece(0); // O
+  piezas.dropPiece(1); // X
+  piezas.dropPiece(1); // O
+  piezas.dropPiece(2); // X
+  piezas.dropPiece(2); // O
+  piezas.dropPiece(3); // X
+  piezas.dropPiece(0); // O
+  piezas.dropPiece(3); // X
+  piezas.dropPiece(1); // O
+  piezas.dropPiece(3); // X
+  piezas.dropPiece(2); // O
+  // game board full. X with four and O with three should return X
+  ASSERT_EQ(Piece::X, piezas.gameState());
+}
+
+TEST(PiezasTest, test_game_state_O_wins_by_one) {
+  Piezas piezas;
+  piezas.dropPiece(0); // X
+  piezas.dropPiece(1); // O
+  piezas.dropPiece(0); // X
+  piezas.dropPiece(1); // O
+  piezas.dropPiece(2); // X
+  piezas.dropPiece(1); // O
+  piezas.dropPiece(3); // X
+  piezas.dropPiece(2); // O
+  piezas.dropPiece(2); // X
+  piezas.dropPiece(0); // O
+  piezas.dropPiece(3); // X
+  piezas.dropPiece(3); // O
+  // game board full. O with three and X with two should return O
+  ASSERT_EQ(Piece::O, piezas.gameState());
+}
