@@ -18,13 +18,13 @@ TEST(PiezasTest, sanityCheck) { ASSERT_TRUE(true); }
 
 TEST(PiezasTest, drop_single_piece_first_col) {
   Piezas piezas;
-  ASSERT_TRUE(piezas.dropPiece(0) == Piece::X);
+  ASSERT_EQ(Piece::X, piezas.dropPiece(0));
 }
 
 TEST(PiezasTest, drop_and_check_single_piece_first_col) {
   Piezas piezas;
   piezas.dropPiece(0);
-  ASSERT_TRUE(piezas.pieceAt(0, 0) == Piece::X);
+  ASSERT_EQ(Piece::X, piezas.pieceAt(0, 0));
 }
 
 TEST(PiezasTest, reset_board) {
@@ -32,5 +32,5 @@ TEST(PiezasTest, reset_board) {
   piezas.dropPiece(0);
   piezas.pieceAt(0, 0);
   piezas.reset();
-  ASSERT_TRUE(piezas.pieceAt(0, 0) == Piece::Blank);
+  ASSERT_EQ(Piece::Blank, piezas.pieceAt(0, 0));
 }
