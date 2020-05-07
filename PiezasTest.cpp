@@ -16,16 +16,6 @@ class PiezasTest : public ::testing::Test {
 
 TEST(PiezasTest, sanityCheck) { ASSERT_TRUE(true); }
 
-/*** Test board reset ***/
-
-TEST(PiezasTest, reset_board) {
-  Piezas piezas;
-  piezas.dropPiece(0);  // X
-  ASSERT_EQ(Piece::X, piezas.pieceAt(0, 0));
-  piezas.reset();
-  ASSERT_EQ(Piece::Blank, piezas.pieceAt(0, 0));
-}
-
 /*** Test Out of Bounds errors ***/
 
 TEST(PiezasTest, drop_piece_out_of_bounds) {
@@ -93,6 +83,16 @@ TEST(PiezasTest, overflow_col) {
   piezas.dropPiece(0);                           // O
   piezas.dropPiece(0);                           // X
   ASSERT_EQ(Piece::Blank, piezas.dropPiece(0));  // O
+}
+
+/*** Test board reset ***/
+
+TEST(PiezasTest, reset_board) {
+  Piezas piezas;
+  piezas.dropPiece(0);  // X
+  ASSERT_EQ(Piece::X, piezas.pieceAt(0, 0));
+  piezas.reset();
+  ASSERT_EQ(Piece::Blank, piezas.pieceAt(0, 0));
 }
 
 /*** Test gameSate ***/
