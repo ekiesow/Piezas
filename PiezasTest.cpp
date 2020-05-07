@@ -58,3 +58,55 @@ TEST(PiezasTest, fill_first_col_check_top_piece) {
   piezas.dropPiece(0);  // X
   ASSERT_EQ(Piece::X, piezas.pieceAt(2, 0));
 }
+
+TEST(PiezasTest, test_game_state_game_not_finished) {
+  piezas.dropPiece(0); // X
+  piezas.dropPiece(1); // O
+  piezas.dropPiece(0); // X
+  piezas.dropPiece(1); // O
+  piezas.dropPiece(0); // X
+  piezas.dropPiece(1); // O
+  piezas.dropPiece(2); // X
+  piezas.dropPiece(3); // O
+  piezas.dropPiece(2); // X
+  piezas.dropPiece(3); // O
+  piezas.dropPiece(2); // X
+  // game board is not full. gameState should return Invalid
+  ASSERT_EQ(Pieces::Invalid, piezas.gameState());
+}
+
+TEST(PiezasTest, test_game_state_tie_column_wise) {
+  Piezas piezas;
+  piezas.dropPiece(0); // X
+  piezas.dropPiece(1); // O
+  piezas.dropPiece(0); // X
+  piezas.dropPiece(1); // O
+  piezas.dropPiece(0); // X
+  piezas.dropPiece(1); // O
+  piezas.dropPiece(2); // X
+  piezas.dropPiece(3); // O
+  piezas.dropPiece(2); // X
+  piezas.dropPiece(3); // O
+  piezas.dropPiece(2); // X
+  piezas.dropPiece(3); // O
+  // game board full. Tie should return Blank
+  ASSERT_EQ(Pieces::Blank, piezas.gameState());
+}
+
+TEST(PiezasTest, test_game_state_tie_row_wise) {
+  Piezas piezas;
+  piezas.dropPiece(0); // X
+  piezas.dropPiece(0); // O
+  piezas.dropPiece(1); // X
+  piezas.dropPiece(1); // O
+  piezas.dropPiece(2); // X
+  piezas.dropPiece(2); // O
+  piezas.dropPiece(3); // X
+  piezas.dropPiece(3); // O
+  piezas.dropPiece(0); // X
+  piezas.dropPiece(2); // O
+  piezas.dropPiece(1); // X
+  piezas.dropPiece(3); // O
+  // game board full. Tie should return Blank
+  ASSERT_EQ(Pieces::Blank, piezas.gameState());
+}
