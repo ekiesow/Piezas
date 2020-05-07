@@ -99,17 +99,17 @@ TEST(PiezasTest, reset_board) {
 
 TEST(PiezasTest, test_game_state_game_not_finished) {
   Piezas piezas;
-  piezas.dropPiece(0);  // X
-  piezas.dropPiece(1);  // O
-  piezas.dropPiece(0);  // X
-  piezas.dropPiece(1);  // O
-  piezas.dropPiece(0);  // X
-  piezas.dropPiece(1);  // O
-  piezas.dropPiece(2);  // X
-  piezas.dropPiece(3);  // O
-  piezas.dropPiece(2);  // X
-  piezas.dropPiece(3);  // O
-  piezas.dropPiece(2);  // X
+  ASSERT_EQ(Piece::X, piezas.dropPiece(0));  // X
+  ASSERT_EQ(Piece::O, piezas.dropPiece(1));  // O
+  ASSERT_EQ(Piece::X, piezas.dropPiece(0));  // X
+  ASSERT_EQ(Piece::O, piezas.dropPiece(1));  // O
+  ASSERT_EQ(Piece::X, piezas.dropPiece(0));  // X
+  ASSERT_EQ(Piece::O, piezas.dropPiece(1));  // O
+  ASSERT_EQ(Piece::X, piezas.dropPiece(2));  // X
+  ASSERT_EQ(Piece::O, piezas.dropPiece(3));  // O
+  ASSERT_EQ(Piece::X, piezas.dropPiece(2));  // X
+  ASSERT_EQ(Piece::O, piezas.dropPiece(3));  // O
+  ASSERT_EQ(Piece::X, piezas.dropPiece(2));  // X
   // game board is not full. gameState should return Invalid
   ASSERT_EQ(Piece::Invalid, piezas.gameState());
 }
