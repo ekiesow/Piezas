@@ -45,7 +45,6 @@ void Piezas::reset() {
  * Trying to drop a piece where it cannot be placed loses the player's turn
  **/
 Piece Piezas::dropPiece(int column) {
-  
   // save the current turn
   Piece temp = turn;
   // change turn to the other player
@@ -82,8 +81,10 @@ Piece Piezas::pieceAt(int row, int column) {
   if (column < 0 || column > 3) return Invalid;
 
   // transpose top and bottom rows
-  if(row == 0) row = 2;
-  else if(row == 2) row = 0;
+  if (row == 0)
+    row = 2;
+  else if (row == 2)
+    row = 0;
 
   // return the piece on the board at specified row and column
   // will return Blank if X or O has not placed a piece
@@ -119,7 +120,7 @@ Piece Piezas::gameState() {
         x_temp = 0;
       } else if (board[i][j] == Blank)
         // return Invalid if there is a blank space in the board
-        // the game is not over. 
+        // the game is not over.
         return Invalid;
 
       // keep track of the most in a row
@@ -148,11 +149,10 @@ Piece Piezas::gameState() {
       if (o_temp > o_counter) o_counter = o_temp;
     }
   }
- 
+
   // return Blank if there is a tie
-  if(x_counter == o_counter) return Blank;
+  if (x_counter == o_counter) return Blank;
   // return the Piece of the winner
-  if(x_counter > o_counter)
-    return X;
+  if (x_counter > o_counter) return X;
   return O;
 }
