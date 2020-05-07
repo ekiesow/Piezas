@@ -73,7 +73,7 @@ TEST(PiezasTest, test_game_state_game_not_finished) {
   piezas.dropPiece(3); // O
   piezas.dropPiece(2); // X
   // game board is not full. gameState should return Invalid
-  ASSERT_EQ(Pieces::Invalid, piezas.gameState());
+  ASSERT_EQ(Piece::Invalid, piezas.gameState());
 }
 
 TEST(PiezasTest, test_game_state_tie_column_wise) {
@@ -91,7 +91,7 @@ TEST(PiezasTest, test_game_state_tie_column_wise) {
   piezas.dropPiece(2); // X
   piezas.dropPiece(3); // O
   // game board full. Tie should return Blank
-  ASSERT_EQ(Pieces::Blank, piezas.gameState());
+  ASSERT_EQ(Piece::Blank, piezas.gameState());
 }
 
 TEST(PiezasTest, test_game_state_tie_row_wise) {
@@ -109,5 +109,5 @@ TEST(PiezasTest, test_game_state_tie_row_wise) {
   piezas.dropPiece(1); // X
   piezas.dropPiece(3); // O
   // game board full. Tie should return Blank
-  ASSERT_EQ(Pieces::Blank, piezas.gameState());
+  ASSERT_EQ(Piece::Blank, piezas.gameState());
 }
