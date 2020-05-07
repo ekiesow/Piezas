@@ -60,6 +60,7 @@ TEST(PiezasTest, fill_first_col_check_top_piece) {
 }
 
 TEST(PiezasTest, test_game_state_game_not_finished) {
+  Piezas piezas;
   piezas.dropPiece(0); // X
   piezas.dropPiece(1); // O
   piezas.dropPiece(0); // X
