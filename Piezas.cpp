@@ -52,13 +52,13 @@ Piece Piezas::dropPiece(int column) {
 
   // check that column is a valid spot on the board
   // if invalid, player loses their turn
-  if (column < 0 || column > (int)board.size() - 1) {
+  if (column < 0 || (column > (int)board.size() - 1)) {
     return Invalid;
   }
 
   // try and place piece of current turrn if the column is not full
   // return the piece placed
-  for(int i = (int)board.size() - 1; i >= 0; i--) {
+  for (int i = (int)board.size() - 1; i >= 0; i--) {
     if (board[i][column] == Blank) {
       board[i][column] = temp;
       return temp;
