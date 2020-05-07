@@ -50,7 +50,7 @@ Piece Piezas::dropPiece(int column) {
   // change turn to the other player
   turn == X ? turn = O : turn = X;
 
-  // check that colum:n is a valid spot on the board
+  // check that column is a valid spot on the board
   // if invalid, player loses their turn
   if (column < 0 || column > 3) {
     return Invalid;
@@ -127,10 +127,10 @@ Piece Piezas::gameState() {
   }
 
   // scan the board across the rows
-  for (size_t i = 0; i < board.size(); i++) {
+  for (size_t i = 0; i < board[0].size(); i++) {
     x_temp = 0;
     o_temp = 0;
-    for (size_t j = 0; j < board[i].size(); j++) {
+    for (size_t j = 0; j < board.size(); j++) {
       if (board[j][i] == X) {
         // increment X and reset O
         x_temp++;
