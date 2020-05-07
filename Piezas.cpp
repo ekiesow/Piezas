@@ -58,7 +58,7 @@ Piece Piezas::dropPiece(int column) {
 
   // try and place piece of current turrn if the column is not full
   // return the piece placed
-  for(size_t i = board[0].size() - 1; i >= 0; i--) {
+  for(size_t i = board.size() - 1; i >= 0; i--) {
     if (board[i][column] == Blank) {
       board[i][column] = temp;
       return temp;
