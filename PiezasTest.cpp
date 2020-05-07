@@ -48,7 +48,7 @@ TEST(PiezasTest, drop_and_check_stacked_pieces_first_col) {
   Piezas piezas;
   piezas.dropPiece(0);  // X
   piezas.dropPiece(0);  // O
-  ASSERT_EQ(Piece::O, piezas.pieceAt(0, 0));
+  ASSERT_EQ(Piece::O, piezas.pieceAt(1, 0));
 }
 
 TEST(PiezasTest, fill_first_col_check_top_piece) {
