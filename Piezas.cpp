@@ -52,7 +52,7 @@ Piece Piezas::dropPiece(int column) {
 
   // check that column is a valid spot on the board
   // if invalid, player loses their turn
-  if (column < 0 || (column > (int)board.size() - 1)) {
+  if (column < 0 || column > 3) {
     return Invalid;
   }
 
